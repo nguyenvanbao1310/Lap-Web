@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Welcome Murach</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/survey.css" type="text/css"/>
+    </head>
+    <body>
+        <img src="murachlogo.png" alt="logo" width="150" height="150">
+        <h1>Survey</h1><!-- comment -->
+        <p>if you have a moment, we'd appreciate it if you would fill out this
+            survey.
+        </p>
+        <div class = "login-container">
+            <h2>Your information:</h2>
+            <form action = "surveyList" method="post">
+                <input type="hidden" name = "action" value="add">
+
+                <label>First Name</label>
+                <input type="text" name = "firstName" required><br>
+
+                <label>Last Name</label>
+                <input type="text" name = "lastName" required><br>
+
+                <label>Email:</label>
+                <input type="email" name = "email" required><br>
+
+                <label>Date of Birth</label>
+                <input type="text" name = "birthDay" required><br>
+                
+                <div class = "raido-container">
+                    <h2>How do you hear about us?</h2><!-- comment -->
+                    <input type=radio name="heardFrom" value="Search Engine">Search Engine
+                    <input type=radio name="heardFrom" value="World of mouth">World of mouth
+                    <input type=radio name="heardFrom" value="Social Media">Social Media
+                    <input type=radio name="heardFrom" value="Other">Other
+                    </div>
+                <h2>Would you like to receive announcements about  <br> new CDs and special
+                offers
+                </h2><!-- comment -->
+                
+                <div class="checkbox-container">
+                    <input type="checkbox"  name="yes" value="I'd like that" onClick ="handleCheckboxClick(this)">
+                    <label > YES, I'd like that  </label><br>
+
+                    <input type="checkbox"  name="yes" value="YES, please send me email announcements" 
+                           onClick ="handleCheckboxClick(this)"
+                           >
+                    <label > YES, please send me email announcements</label><br>
+                </div>
+                 
+                 <div class="contact-container">
+                    <label>Please contact me by:</label>
+                    <select name="contact" > 
+                      <option value="email">Email</option>
+                      <option value="postal mail">postal mail</option>
+                    </select>
+                 </div>
+
+                <label>&nbsp;</label><br>
+                <input type="submit" value = "Submit" id="submit">  
+            </form>
+        </div>
+        
+        <script>
+           function handleCheckboxClick(checkbox){
+               const check = document.querySelectorAll('input[name = "yes"]');
+               check.forEach(a => {
+                   if(a !== checkbox){
+                       a.checked = false;
+                   }
+               });
+           }
+        </script>
+       
+    </body>
+</html>
