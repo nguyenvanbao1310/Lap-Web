@@ -24,14 +24,26 @@ public class TestServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         
-        System.out.println("TestServlet Post");
+       response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        try {
+            out.println("<h1>TestServlet Get</h1>");
+        } finally {
+            out.close();
+        }
          
     }
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        System.out.println("TestServlet Get");
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        try {
+            out.println("<h1>TestServlet Post</h1>");
+        } finally {
+            out.close();
+        }
     }
 
 
